@@ -1,12 +1,11 @@
 import {useEffect, useRef, useState} from "react";
-import {api} from "../../helper/api";
-import {addCats, clearData, setCats} from "../../redux/ducks/catDuck";
 import {useDispatch, useSelector} from "react-redux";
 
+import {addCats, clearData, setCats} from "../../redux/ducks/catDuck";
+import {api} from "../../helper/api";
 import CatCard from "./catCard";
 
 import "./styles.css";
-import {limitStep} from "../../helper/constants";
 
 const MainDisplay = ({limit, categoryId, pageNum}) => {
 
@@ -23,10 +22,7 @@ const MainDisplay = ({limit, categoryId, pageNum}) => {
     useEffect(scrollToBottom, [cats]);
 
 
-    const loadMoreHandler = () => {
-        // setNewLimit(prev => prev + limitStep);
-        setPage(prev => ++prev);
-    };
+    const loadMoreHandler = () => setPage(prev => ++prev);
 
     /**
      * fetch initial data
@@ -63,7 +59,7 @@ const MainDisplay = ({limit, categoryId, pageNum}) => {
                     {cats.map(({id, url}) => <CatCard key={Math.random()} img_url={url}/>)}
                 </div>
                 {cats.length > 0 &&
-                    <button ref={buttonRef} id={"loadMore"}  onClick={loadMoreHandler}> Load more cats</button>}
+                    <button ref={buttonRef} id={"loadMore"} onClick={loadMoreHandler}> Load more cats</button>}
             </div>
         </>
 

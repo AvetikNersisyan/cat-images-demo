@@ -25,7 +25,7 @@ export const catDuck = (state = initialState, {type, payload}) => {
         case ADD_CATS:
             return {...state, cats: state.cats.concat(payload)};
         case CLEAR_DATA:
-            return  {...state, cats: []}
+            return {...state, cats: []};
         default:
             return {...state};
     }

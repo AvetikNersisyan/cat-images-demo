@@ -1,10 +1,10 @@
-import loadGif from "../assets/animated/hourglass.png"
+import loadGif from "../assets/img/hourglass.png";
 
-const Loading =() => {
+const Loading = () => {
     return (<div className={"loading"}>
         <img src={loadGif}/>
         <p>Loading...</p>
-    </div>)
-}
+    </div>);
+};
 
 export default Loading;
