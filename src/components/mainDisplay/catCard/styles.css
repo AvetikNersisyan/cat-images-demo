@@ -1,0 +1,11 @@
+.cat-card {
+    width: 200px;
+    height: 200px;
+    /*border: 1px solid black*/
+}
+
+.cat-card img{
+    width: 100%;
+    max-height: 100%;
+
+}

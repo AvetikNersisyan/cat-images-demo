@@ -1,0 +1,7 @@
+.main-display-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 2em;
+    gap: 1em;
+}

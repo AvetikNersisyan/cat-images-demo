@@ -1,0 +1,30 @@
+.sidebar-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 2em;
+    width: 100px;
+
+
+}
+
+.nav-link {
+    text-decoration: none;
+    width: 100%;
+    background: yellow;
+}
+
+
+.nav-item {
+    color: #ffffff;
+    text-decoration: none;
+    width: 100%;
+    background: rgba(255, 0, 0, 0.49);
+
+}
+
+.active {
+    width: calc(100% + 15px);
+    background: #39a63d;
+
+}

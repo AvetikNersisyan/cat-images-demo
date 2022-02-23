@@ -1,25 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import {useEffect} from "react";
+import {api} from "./helper/api";
+import {setCatCategories} from "./redux/ducks/catDuck";
+import Sidebar from "./components/sidebar";
+import {useDispatch, useSelector} from "react-redux";
+import {MainDisplay} from "./components/mainDisplay";
+import {Route, Routes} from "react-router-dom";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const dispatch = useDispatch();
+    const categories = useSelector(({catDuck}) => catDuck.categories);
+
+    useEffect(() => {
+        fetch(`${api}/categories`)
+            .then(res => res.json())
+            .then(res => dispatch(setCatCategories(res)))
+            .catch(err => console.error(err));
+    }, []);
+
+    return (
+        <div className="App">
+            <Sidebar/>
+
+
+            <Routes>
+                {categories?.map(({name, id}) => (
+                    <Route key={id} path={`${name}`} element={<MainDisplay categoryId={id} limit={10} pageNum={1}/>}/>
+                ))}
+                <Route path={"/"} element={<div> Main</div>}/>
+            </Routes>
+
+
+        </div>
+    );
 }
 
 export default App;
