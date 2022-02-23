@@ -1,8 +1,8 @@
-import loadGif from "../assets/img/hourglass.png";
+import loader from "../assets/img/hourglass.png";
 
 const Loading = () => {
     return (<div className={"loading"}>
-        <img src={loadGif}/>
+        <img src={loader}/>
         <p>Loading...</p>
     </div>);
 };
